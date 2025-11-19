@@ -1,0 +1,441 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #f3f4f6;
+  color: #111827;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* HEADER */
+
+.app-header {
+  background: linear-gradient(135deg, #1976d2, #1565c0);
+  color: #ffffff;
+  padding: 1.1rem 1.2rem 0.9rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+}
+
+.app-header h1 {
+  font-size: 1.4rem;
+  margin-bottom: 0.2rem;
+}
+
+.app-header .subtitle {
+  font-size: 0.9rem;
+  opacity: 0.93;
+}
+
+/* LAYOUT PRINCIPALE */
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 980px;
+  margin: 0.8rem auto 1.1rem;
+  padding: 0 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+/* TABS */
+
+.tabs {
+  display: flex;
+  background: #e5e7eb;
+  border-radius: 999px;
+  padding: 0.15rem;
+}
+
+.tab-btn {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.18);
+}
+
+/* PAGINE */
+
+.page {
+  display: none;
+}
+
+.page.active {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* CARD */
+
+.card {
+  background: #ffffff;
+  border-radius: 0.85rem;
+  padding: 0.9rem 0.9rem 1rem;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.12);
+}
+
+.card h2 {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+}
+
+.sub-title {
+  font-size: 0.95rem;
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+}
+
+/* NAVIGAZIONE MESE */
+
+.month-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.nav-btn {
+  border: none;
+  background: #e5e7eb;
+  color: #111827;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-btn:active {
+  transform: translateY(1px);
+}
+
+.month-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: 600;
+}
+
+#month-name {
+  text-transform: uppercase;
+  font-size: 0.95rem;
+}
+
+#year-number {
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* INTESTAZIONE GIORNI SETTIMANA */
+
+.weekdays-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #6b7280;
+  margin-top: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+
+/* CALENDARIO */
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  background: #e5e7eb;
+  border-radius: 0.7rem;
+  overflow: hidden;
+}
+
+.day-cell {
+  min-height: 60px;
+  background: #f9fafb;
+  position: relative;
+  padding: 3px 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.day-cell.outside-month {
+  background: #f3f4f6;
+  color: #9ca3af;
+}
+
+.day-number {
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.day-label {
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+/* OGGI */
+
+.day-cell.today .day-number {
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 0 5px;
+  border: 1px solid #2563eb;
+}
+
+/* RIEPILOGO MESE */
+
+.month-summary {
+  margin-top: 0.4rem;
+  font-size: 0.85rem;
+  color: #374151;
+}
+
+/* LISTA TURNI DISPONIBILI */
+
+.shift-types-list {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.shift-type-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.45rem;
+  border-radius: 0.6rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+.shift-type-badge {
+  width: 36px;
+  height: 36px;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.shift-type-info {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8rem;
+}
+
+.shift-type-name {
+  font-weight: 600;
+}
+
+.shift-type-hours {
+  color: #6b7280;
+}
+
+/* FORM NUOVO TURNO */
+
+.shift-type-form {
+  margin-top: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.shift-type-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.shift-type-row label {
+  color: #374151;
+}
+
+.shift-type-row input {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.45rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  background: #f9fafb;
+}
+
+.shift-type-row input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  background: #ffffff;
+}
+
+.shift-type-actions {
+  margin-top: 0.1rem;
+}
+
+/* FORM SETTIMANA */
+
+.week-form {
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.week-form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  font-size: 0.85rem;
+}
+
+.week-form-row label {
+  color: #374151;
+}
+
+.week-form-row input,
+.week-form-row select {
+  padding: 0.35rem 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.9rem;
+  outline: none;
+  background: #f9fafb;
+}
+
+.week-form-row input:focus,
+.week-form-row select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  background: #ffffff;
+}
+
+.week-form-actions {
+  margin-top: 0.15rem;
+}
+
+/* BOTTONI */
+
+.btn {
+  border: none;
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  transition: transform 0.08s, box-shadow 0.08s, background-color 0.08s;
+}
+
+.btn.primary {
+  background: #1976d2;
+  color: #ffffff;
+  box-shadow: 0 2px 4px rgba(25, 118, 210, 0.3);
+}
+
+.btn.primary:hover {
+  background: #1565c0;
+}
+
+.btn.secondary {
+  background: #e5e7eb;
+  color: #111827;
+}
+
+.btn:active {
+  transform: translateY(1px);
+  box-shadow: none;
+}
+
+/* BOTTONI BACKUP */
+
+.backup-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+
+/* TESTI INFO */
+
+.info-text {
+  font-size: 0.8rem;
+  color: #6b7280;
+  line-height: 1.4;
+  margin-top: 0.3rem;
+}
+
+.info-text.small {
+  font-size: 0.75rem;
+}
+
+/* DIVISORE */
+
+.divider {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 0.6rem 0;
+}
+
+/* FOOTER */
+
+.app-footer {
+  padding: 0.6rem 1rem 0.9rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* CANVAS GRAFICO */
+
+#month-chart {
+  margin-top: 0.3rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+}
+
+/* LAYOUT DESKTOP: affianca le card nella pagina attiva */
+
+@media (min-width: 860px) {
+  .page.active {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .page.active .card {
+    flex: 1;
+  }
+}
